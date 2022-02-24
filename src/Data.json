@@ -1,0 +1,12 @@
+{
+  "Media": [
+    {"para": "MariaDB Server is one of the most popular open source relational databases. It’s made\n                                    by the original developers of MySQL and guaranteed to stay open source. It is part\n                                    of most cloud offerings and the default in most Linux distributions.\n\n                                    It is built upon the values of performance, stability, and openness, and MariaDB\n                                    Foundation ensures contributions will be accepted on technical merit. Recent new\n                                    functionality includes advanced clustering with Galera Cluster 4, compatibility\n                                    features with Oracle Database and Temporal Data Tables, allowing one to query the\n                                    data as it stood at any point in the past.",
+    "photo": "https://1.bp.blogspot.com/-URFkWOnpKHo/XYEB_lQr2lI/AAAAAAAAErg/tZM5mKP8fnMHcySDhVnqkAfBGrS4WubiwCLcBGAsYHQ/s640/mariadb-and-mysql.png"
+
+    },
+    {
+     "para":"The key difference in Frappe compared to other frameworks is that meta-data is also treated as data. This enables you to build front-ends very easily. We believe in a monolithic architecture, so Frappe comes with almost everything you need to build a modern web application. It has a full featured Admin UI called the Desk that handles forms, navigation, lists, menus, permissions, file attachment and much more out of the box.",
+      "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Erpnext7-desk-shot.png/450px-Erpnext7-desk-shot.png"
+    }
+  ]
+}
