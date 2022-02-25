@@ -1,6 +1,7 @@
 import React, {useState,createRef } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useScreenshot, createFileName } from "use-react-screenshot";
+import "./scrollbar.css";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -17,12 +18,7 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import '@coreui/coreui/dist/css/coreui.min.css'
 import { CImage } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { Dropdown } from 'react-bootstrap';
-import Picker from 'emoji-picker-react';
-import InputEmoji from 'react-input-emoji'
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { CSidebarToggler,CSidebarNav,CSidebarHeader, CSidebarFooter,CSidebarBrand,CSidebar,CNavGroup,CNavTitle,CBadge } from '@coreui/react'
-import { cilSpeedometer,cilUser,cilBell,cilGroup,cilLibrary,cilTask,cilRss,cilPaperPlane,cilLineWeight, cilBadge,cilPuzzle,cilBirthdayCake, cilMenu } from '@coreui/icons'
 import {
     CDropdown,
     CDropdownToggle,
@@ -38,6 +34,10 @@ import {
     CRow,
     CCol
 } from '@coreui/react'
+import { Dropdown } from 'react-bootstrap';
+import Picker from 'emoji-picker-react';
+import InputEmoji from 'react-input-emoji'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import data from "./Data.json";
 import { makeStyles } from '@mui/styles';
 import { color } from "@mui/system";
@@ -60,11 +60,15 @@ import Popup from 'reactjs-popup';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
+import '@fortawesome/fontawesome-free/css/all.min.css'; import
+'bootstrap-css-only/css/bootstrap.min.css'; import
+'mdbreact/dist/css/mdb.css';
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import SendIcon from '@mui/icons-material/Send';
 import Grid from "@mui/material/Grid";
+import { MDBContainer } from "mdbreact";
 import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -77,6 +81,9 @@ import { FacebookShareButton ,EmailShareButton,LinkedinShareButton,TelegramShare
 import MailIcon from '@mui/icons-material/Mail';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import Sidebar from "./Sidebar";
+import Appbar from "./Appbar";
+
 
 const MD = data.Media;
 
@@ -193,15 +200,6 @@ export default function Dashboard() {
         setChosenEmoji(emojiObject);
     };
 
-
-
-
-    
-
-
-
-
-
     const [selectedColourIndex, setColourIndex] = useState(0);
     const [selectedCountIndex, setCountIndex] = useState(0);
     const [selectedshareIndex, setshareIndex] = useState(0);
@@ -230,7 +228,7 @@ const nextshare = () => {
 }
 }
 
-
+const scrollContainerStyle = {  maxHeight: "600px" };
 
 
  const handleClick=event=> {
@@ -242,101 +240,14 @@ console.log(postRef.current.value)
 }    
 
 
-
-
-
-
-
-
-
-
-
     return (
-
         <div >
-
-            <nav className=" navbar fixed-top navbar-expand-md navbar-dark bg-dark " style={{background:'linear-gradient(to right,rgb(0, 0, 0), #200F21)'}}>
-                <div className="flex-row d-flex">
-                    <img style={{height: '40px'}} className="navbar-brand"
-                         src={'https://raw.githubusercontent.com/jagjotsingh09/Website-Dashboard/main/src/img/CGI-logo.jpg'}
-                         alt=""/>
-                    <a className="navbar-brand" href="#">Confederation of Global Innovators</a>
-                </div>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="navbar-collapse collapse" id="collapsingNavbar">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <a style={{color: 'white'}} className="nav-link" href="#myAlert"
-                               data-toggle="collapse">Services</a>
-                        </li>
-                        <li className="nav-item">
-                            <a style={{color: 'white'}} className="nav-link" href="" data-target="#myModal"
-                               data-toggle="modal">Home</a>
-                        </li>
-
-                        <li className="nav-item">
-                            <a className="nav-link waves-effect waves-light text-white">
-                                <i className="fas fa-envelope-open-text"></i>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link waves-effect waves-light text-white">
-                                <i className="fas fa-align-justify"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-
+           <Appbar/>
             <div style={{paddingTop:'10opx'}}>
-
-                <CSidebar position="fixed show" style={{height:'100%'}} className=" mt-5 bg-info " style={{height:'flex'}} >
-
-                    <CSidebarNav  style={{background:'linear-gradient(to right,rgb(0, 0, 0), #200F21)'}}>
-                        <CNavItem >
-                            <h5 style={{color:'white'}}>Confederation of Global Innovators</h5>
-                        </CNavItem>
-
-                        <CNavItem style={{color:'white'}} href="/Overview">
-                            Overview
-                        </CNavItem>
-                        <CNavItem style={{color:'white'}} href="/Export">
-                            Export
-                            <CBadge color="primary ms-auto"></CBadge>
-                        </CNavItem>
-                        <CNavItem style={{color:'white'}} href="/Snippets"  >
-                            Snippets
-                            <CBadge color="primary ms-auto"></CBadge>
-                        </CNavItem>
-                        <CNavItem style={{color:'white'}} href="/Gallery">
-Gallery
-                            <CBadge color="white ms-auto"></CBadge>
-                        </CNavItem>
-
-                        <CNavItem style={{color:'white'}} href="/Certificates">
-                            Certificates
-                            <CBadge color="primary ms-auto"></CBadge>
-                        </CNavItem>
-                        <CNavItem style={{color:'white'}}href="/Company">
-                            Company
-                            <CBadge color="primary ms-auto"></CBadge>
-                        </CNavItem>
-                        <CNavItem style={{color:'white'}} href="/Management">
-                            Management
-                            <CBadge color="primary ms-auto"></CBadge>
-                        </CNavItem>
-                    </CSidebarNav>
-
-                </CSidebar>
-
+<Sidebar/>
             </div>
             <div style={{paddingTop:'50px',paddingLeft:'255px'}}>
-
-
-                <Box
+              <Box
                     style={{width:'100%'}}
                     component="form"
                     sx={{
@@ -348,9 +259,9 @@ Gallery
 
 
 
-                    <Grid container spacing={2}>
+                    <Grid container spacing={3}>
                     
-                        <Grid itm xs={8}>
+                        <Grid itm xs={6}>
                         <form >
                             <input placeholder="Post something here..." ref={postRef} style={{width:'550px',height:"55px"}} />
                             <p></p>
@@ -393,12 +304,19 @@ Gallery
                         </Grid>
 
                     </Grid>
-                   <div style={{width:'800px',paddingLeft:'10px'}}>
+                   <div style={{width:'700px',paddingLeft:'0px'}}>
                     <Divider />
                    </div>
 
                 </Box>
-                <div style={{paddingLeft:'50px'}}>
+                <div style={{paddingLeft:'0px',width:'720px'}}>
+                
+
+<MDBContainer>
+<div className="scrollbar scrollbar-morpheus-den  " style={scrollContainerStyle}>
+    
+          
+               
                     {MD.map(s => (
 
                     <Paper
@@ -427,32 +345,7 @@ style={{paddingTop:'10px'}}
 
                                 <CCol style={{paddingLeft: '480px'}}>
 
-                            
-<Dropdown
-          >
-      <Dropdown.Toggle
-        className="main-style"
-        id="dropdown-basic"
-        style={{background:'#1A2027'}}
-      >
-      <MoreHorizIcon/>
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu style={{background:'#1A2027'}} >
-         
-         
-        <Dropdown.Item  style={{color:'white'}} href="#/action-1">
-        <ShareIcon style={{color:'white'}}/>Share
-        </Dropdown.Item>
-        <Dropdown.Item style={{color:'white'}} href="#/action-2">
-        <PrintIcon style={{color:'white'}}/>Print
-        </Dropdown.Item>
-        <Dropdown.Item style={{color:'white'}} href="#/action-3">
-         <ScreenshotIcon style={{color:'white'}}/> screenshot
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-
+       
                             
                                   </CCol>
                             </CRow>
@@ -526,6 +419,10 @@ style={{ width: 200 }}
                     </Paper>
                             ))}
 
+                          
+                            </div>
+                </MDBContainer>
+       
                 </div>
 
 
