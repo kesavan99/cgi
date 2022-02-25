@@ -189,7 +189,7 @@ export default function Dashboard() {
     const [editorState, seteditorState] = useState([]);
 
     const postRef = useRef()
-
+const commentRef=useRef()
 
     const classes = useStyles();
 
@@ -238,6 +238,14 @@ const scrollContainerStyle = {  maxHeight: "600px" };
 console.log(postRef.current.value)
 
 }    
+const handClick=event=> {
+
+    event.preventDefault();
+
+console.log(commentRef.current.value)
+
+}    
+
 
 
     return (
@@ -398,16 +406,15 @@ style={{paddingTop:'10px'}}
                         </div>
                         
 <div style={{paddingTop:'8px'}} >
- 
-<TextareaAutosize
-aria-label="empty textarea"
-placeholder="Comments"
-style={{ width: 200 }}
-/>
 
+<form >
+    <i style={{color:'white'}}>Comments:</i>
+                            <input placeholder="comments" ref={commentRef} style={{width:'75%',height:"30px"}} />
+                            <p></p>
+                            <Buttons variant="contained" onClick={handClick}  startIcon={<SendIcon/>}>submit</Buttons>
 
-                        
-                                <Buttons   style={{color:"#2196f3"}} size="large" startIcon={<SendIcon/>} /> 
+    </form>
+
                                 </div>
 </div>
                     </Paper>

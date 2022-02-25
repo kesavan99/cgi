@@ -32,7 +32,7 @@ export default function Appbar() {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link waves-effect waves-light text-white">
-                                <i className="fas fa-align-justify"></i>
+
                             </a>
                         </li>
                     </ul>
